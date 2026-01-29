@@ -1,15 +1,15 @@
-def correct(s):
-    character_number_relation = {
-        "5": "S",
-        "0": "O",
-        "1": "I"
-    }
+def solution(s):
+    new_string = []
+    for char in s:
+        if not char.isupper():
+            new_string.append(char)
+        else:
+            new_string.append(' ')
+            new_string.append(char)
+    return ''.join(new_string)
 
-    translation_table = str.maketrans(character_number_relation)
-    return s.translate(translation_table)    
-    
 if __name__ == "__main__":
-    print(correct("L0ND0N"))
+    print(solution("helloWorld"))
 
 
 
