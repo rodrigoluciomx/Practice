@@ -6,3 +6,11 @@ __pycache__/
 *.log
 .DS_Store
 node_modules/
+
+*.o
+*.a
+*.so
+*.dylib
+
+build/
+bin/
