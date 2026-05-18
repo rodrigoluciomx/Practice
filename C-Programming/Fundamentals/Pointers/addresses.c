@@ -1,13 +1,25 @@
+/*
+
+Advantages of pointers: 
+- Less time in program execution
+- Working on the original variables
+- With the help of pointers, we can create data structures (linked-list, stack, queue)
+- Returning more than one values from functions
+- Searching and sorting large data very easily
+- Dynamically memory allocation
+
+*/
+
 #include <stdio.h>
 
 int main(void) {
 
   int n = 50;
-  char *s = "HI!";
 
-  // iniatializing a variable p with the address in memory of n
+  // iniatializing a variable p with the address in memory of n 
   int *p = &n;
 
+  char *s = "HI!";
   /*
 
    using "& + <name of the variable"
@@ -16,14 +28,16 @@ int main(void) {
    this variable
 
   */
-  printf("The adress in memory of n is: %p\n", p);
+  printf("The address in memory of n is: %p\n", p);
 
   /*
    printing n using p
    *p means (in this case): de-reference operator,
-   which means "go to the address in p"
+   which means "go to the address in p and get the value"
+   or "value pointed by *p"
+   so, n & *p are the same!!, they have the same value.
   */
-  printf("Printing n using p: %i\n", *p);
+  printf("Value pointed by p: %i\n", *p);
 
   /*
 
