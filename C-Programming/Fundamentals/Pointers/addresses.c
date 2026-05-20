@@ -28,19 +28,26 @@ int main(void) {
    this variable
 
   */
-  printf("The address in memory of n is: %p\n", p);
-
+  printf("\nThe address in memory of n is: %p\n", &n);
+  printf("The address in memory of n, using p: %p\n", p);
+  
   /*
-   printing n using p
    *p means (in this case): de-reference operator,
    which means "go to the address in p and get the value"
-   or "value pointed by *p"
+   or "value pointed by *p" or "value at address ... "
    so, n & *p are the same!!, they have the same value.
   */
+  printf("\nValue of n is: %d\n", n);
   printf("Value pointed by p: %i\n", *p);
 
-  /*
+  printf("\n --- Changing the value of n using *p ---\n");
 
+  // the value pointed by p should now become 100
+  *p = 100;
+  printf("\nThe new value of n is: %d\n", n);
+
+
+  /*
 
   */
   printf("\nNow working with the string...\n");
