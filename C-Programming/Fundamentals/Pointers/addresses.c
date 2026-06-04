@@ -15,6 +15,8 @@ Advantages of pointers:
 int main(void) {
 
   int n = 50;
+  int A = 10;
+  int *B = &A;
 
   // iniatializing a variable p with the address in memory of n 
   int *p = &n;
@@ -56,5 +58,10 @@ int main(void) {
   printf("Address of %c: %p\n", s[1], &s[1]);
   printf("Address of %c: %p\n", s[2], &s[2]);
   printf("Address of %i(last element): %p\n\n", s[3], &s[3]);
+
+  *B = 20;
+  printf("\n %d \n",A);
+
   return 0;
+
 }

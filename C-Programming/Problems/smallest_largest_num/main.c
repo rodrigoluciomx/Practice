@@ -1,11 +1,10 @@
 #include <stdio.h>
 
-int get_largest(unsigned int *nums);
-int get_smallest(unsigned int *nums);
+int get_largest(unsigned int nums[]);
+int get_smallest(unsigned int nums[]);
 
 int main (void){
     unsigned int nums[6] = {0,0,0,0,0,0};
-    unsigned int *p = nums;
     int largest, smallest;
 
     printf("Please, enter 6 numbers:\n\n");
@@ -13,16 +12,16 @@ int main (void){
         scanf("%d", &nums[i]);
     }
 
-    largest = get_largest(p);
-    smallest = get_smallest(p);
+    largest = get_largest(nums);
+    smallest = get_smallest(nums);
 
     printf("\n\nCalculating...\n");
-    printf("\nThe  largest number is %d\n",largest);
+    printf("\nThe largest number is %d\n",largest);
     printf("The smallest number is: %d\n\n", smallest);
 
 }
 
-int get_largest(unsigned int *nums){
+int get_largest(unsigned int nums[]){
     int temp_largest = nums[0];
     for (int j = 0; j < 6 ; j++){
         if(nums[j] > temp_largest){
@@ -34,7 +33,7 @@ int get_largest(unsigned int *nums){
     return temp_largest;
 }
 
-int get_smallest(unsigned int *nums){
+int get_smallest(unsigned int nums[]){
     int temp_small = nums[0];
     for (int j = 0; j < 6 ; j++){
         if(nums[j] < temp_small){
