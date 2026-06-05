@@ -38,29 +38,74 @@ sample_articles = [
 ]
 
 
-def extract_titles_traditional(sample_articles):
+def extract_titles_traditional(articles):
     titles = []
-    for article in sample_articles:
+    for article in articles:
         if len(article["title"]) > 10:
             titles.append(article["title"])
     return titles
 
 
-def extract_titles_list(sample_articles):
-    return [
-        article["title"] for article in sample_articles if len(article["title"]) > 10
-    ]
+def extract_titles_list(articles):
+    return [article["title"] for article in articles if len(article["title"]) > 10]
 
-def extract_titles_dict(sample_articles):
-    return [
-        article["title"] for article in sample_articles if len(article["title"]) > 10
-    ]
 
-def extract_titles_set(sample_articles):
+def extract_titles_dict(articles):
     return {
-        article["title"] for article in sample_articles if len(article["title"]) > 10
+        article["title"]: article["description"]
+        for article in articles
+        if len(article["description"]) > 5
     }
 
-print(extract_titles_traditional(sample_articles))
-print("-------------------")
-print(extract_titles_list(sample_articles))
+
+def get_sources_traditional(articles):
+    sources = set()
+    for article in articles:
+        if article.get("source") and article.get("source").get("name"):
+            sources.add(article.get("source").get("name"))
+    return sources
+
+
+def get_sources(articles):
+    return {
+        article.get("source").get("name")
+        for article in articles
+        if article.get("source") and article.get("source").get("name")
+    }
+
+
+def categorize_traditional(articles):
+    sources = get_sources(articles)
+    results = {
+        # KEY:CATEGORY
+    }
+
+    for source in sources:
+        if source not in results:
+            results[source] = []
+
+        for article in articles:
+            if source == article.get("source").get("name"):
+                results[source].append(article)
+    return results
+
+# Nesting dicts and list comprehensions
+def categorize(articles):
+    sources = get_sources(articles)
+    return{
+        source:[
+            article
+            for article in articles
+            if source == article.get("source").get("name")
+        ]
+        for source in sources
+    }
+
+
+# print(extract_titles_traditional(sample_articles))
+# print("-------------------")
+# print(extract_titles_dict(sample_articles))
+# print(get_sources_traditional(sample_articles))
+# print("--------------")
+# print(get_sources(sample_articles))
+print(categorize_traditional(sample_articles))
