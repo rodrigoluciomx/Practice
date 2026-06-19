@@ -1,15 +1,40 @@
 # understanding args
 
+API_KEY = "value_api_key"
+BASE_URL = "https://example.com"
 
-def newapi_client(api_key, query, timeout=20, retries=3):
-    return f"NewsAPI: {query} con timeout {timeout}"
-
-
-def guardian_client(api_key, section, from_date, timeout=30, retries=3):
-    return f"Guardin {section} desde {from_date} con timeout {timeout}"
-
-def ejemplo_args(*args):
+def ejemplo_args(api_key, *args):
+    print(f"\n\napi_key: {api_key}")
     print(f"args: {args}")
-    print(f"{type(args)}")
+    print(f"{type(args)}\n\n")
 
-ejemplo_args("API_KEY_VALUE", "HOLA", "MUNDO")
+
+def suma_valores(*args):
+    return sum(args)
+
+# ejemplo_args("API_KEY_VALUE", "HOLA", "MUNDO")
+# ejemplo_args("API_KEY_VALUE2", "HOLA2", "MUNDO2")
+# print(suma_valores(1,2,3,4,5,6))
+
+## understanding kwargs
+
+def ejemplo_kwargs(**kwargs):
+    print(f"\n\nkwargs: {type(kwargs)}")
+    print(f"kwargs: {kwargs}")
+    print(f"kwargs: {type(kwargs)}\n\n")
+
+
+ejemplo_kwargs(
+    api_key="DEMO",
+    query="Noticias de Python",
+    timeout=30,
+    retries=3,
+)
+
+ejemplo_kwargs(
+    api_key="DEMO_GUARDIAN",
+    section="Sports",
+    from_date="2020-10-20",
+    timeout=30,
+    retries=3,
+)

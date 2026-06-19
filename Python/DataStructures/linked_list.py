@@ -1,3 +1,9 @@
+''''
+A single linkedlist is a list of nodes where each node contains data 
+and a reference to the next node in the list.
+
+'''
+
 from node import Node
 
 class LinkedList:
