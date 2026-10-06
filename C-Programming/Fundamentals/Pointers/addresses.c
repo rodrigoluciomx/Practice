@@ -20,18 +20,23 @@ int main(void) {
 
   // iniatializing a variable p with the address in memory of n 
   int *p = &n;
+  
+  /*
+  
+    using "& + <name of the variable"
+    literally means: hey computer
+    give me the address in memory of
+    this variable
+  
+  */
 
   char *s = "HI!";
-  /*
-
-   using "& + <name of the variable"
-   literally means: hey computer
-   give me the address in memory of
-   this variable
-
-  */
   printf("\nThe address in memory of n is: %p\n", &n);
   printf("The address in memory of n, using p: %p\n", p);
+  
+  
+  printf("\nValue of n is: %d\n", n);
+  printf("Value pointed by p: %i\n", *p);
   
   /*
    *p means (in this case): de-reference operator,
@@ -39,8 +44,6 @@ int main(void) {
    or "value pointed by *p" or "value at address ... "
    so, n & *p are the same!!, they have the same value.
   */
-  printf("\nValue of n is: %d\n", n);
-  printf("Value pointed by p: %i\n", *p);
 
   printf("\n --- Changing the value of n using *p ---\n");
 
