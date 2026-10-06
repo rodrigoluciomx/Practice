@@ -14,6 +14,9 @@ def transpose_two_strings(arr):
 
 #Best practices
 def transpose_two_strings(lst):
+    """
+    zip_longest go with multiple iterables, at the same time, and match end by the position
+    """
     return "\n".join("|".join(row) for row in zip_longest(*lst, fillvalue=" "))
 
 
